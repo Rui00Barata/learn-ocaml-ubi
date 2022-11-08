@@ -1,0 +1,12 @@
+{
+  "learnocaml_version": "2",
+  "kind": "exercise",
+  "stars": 2,
+  "title": "Rolling Hash function for strings",
+  "identifier": "2.4",
+  "authors": [
+    ["Rui Barata", "rui.barata@ubi.pt"],
+    ["Dário Santos", "dariovfsantos@gmail.com"],
+    ["Simão Sousa", "desousa@di.ubi.pt"]
+  ]
+}

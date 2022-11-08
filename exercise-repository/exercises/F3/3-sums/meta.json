@@ -1,0 +1,8 @@
+{
+    "learnocaml_version" : "2",
+    "kind"               : "exercise",
+    "stars"              : 2,
+    "title"              : "Somatórios",
+    "identifier"         : "3.9",
+    "authors"            : [["Rui Barata", "rui.barata@ubi.pt"],["Simão Melo de Sousa",""]]
+}

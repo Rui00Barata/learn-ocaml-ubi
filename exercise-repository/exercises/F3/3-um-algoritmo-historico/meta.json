@@ -1,0 +1,8 @@
+{
+  "learnocaml_version" : "2",
+  "kind"               : "exercise",
+  "stars"              : 1,
+  "title"              : "Um algoritmo histórico",
+  "identifier"         : "3.3",
+  "authors"            : [["Dário Santos", "dariovfsantos@gmail.com"], ["Simão Sousa", "desousa@di.ubi.pt"]]
+}

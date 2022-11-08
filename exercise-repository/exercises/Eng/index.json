@@ -1,0 +1,100 @@
+{
+  "learnocaml_version": "1",
+  "groups": {
+    "Ficha1": {
+      "title": "Worksheet 1 - types, assessments and errors",
+      "exercises": [
+        "F1/1-type",
+        "F1/1-type-error",
+        "F1/1-mistery",
+        "F1/1-future",
+        "F1/1-errors",
+        "F1/1-type-value",
+        "F1/1-what-type",
+        "F1/1-true-false",
+        "F1/1-what-type2",
+        "F1/1-type2",
+        "F1/1-tuples",
+        "F1/1-fun-calls"
+      ]
+    },
+
+    "Ficha2": {
+      "title": "Worksheet 2 - from the acquainted to the unfamiliar",
+      "exercises": [
+        "F2/2-digit-sum",
+        "F2/2-floyds-triangle",
+        "F2/2-charles-babbage",
+        "F2/2-rolling-hash"
+      ]
+    },
+
+    "Ficha3": {
+      "title": "Worksheet 3 - calculations and recursion",
+      "exercises": [
+        "F3/3-simple-math",
+        "F3/3-manhattan-distance",
+        "F3/3-a-historic-algorithm",
+        "F3/3-reach-infinity",
+        "F3/3-pi",
+        "F3/3-digits",
+        "F3/3-seq-hofstadter",
+        "F3/3-hofstadter",
+        "F3/3-sums",
+        "F3/3-tribonacci",
+        "F3/3-fast-exponentiation",
+        "F3/3-catalan",
+        "F3/3-dichotomy",
+        "F3/3-mccarthy-91-function",
+        "F3/3-triangles",
+        "F3/3-collatz-hailstones",
+        "F3/3-stars-in-the-form-of-textual-fractals",
+        "F3/3-how-many-mountains",
+        "F3/3-dragon-greatness",
+        "F3/3-hanoi-towers"
+      ]
+    },
+
+    "Ficha4": {
+      "title": "Worksheet 4 - types, assessments and errors - part 2",
+      "exercises": [
+        "F4/4-type-1",
+        "F4/4-type-2",
+        "F4/4-type-3",
+        "F4/4-type-4",
+        "F4/4-true-false",
+        "F4/4-return",
+        "F4/4-fun-1",
+        "F4/4-fun-2"
+      ]
+    },
+
+    "Ficha5": {
+      "title": "Worksheet 5 - lists and vectors",
+      "exercises": [
+        "F5/5-lists",
+        "F5/5-shine-in-society",
+        "F5/5-lotto",
+        "F5/5-salc",
+        "F5/5-half",
+        "F5/5-horner",
+        "F5/5-rle",
+        "F5/5-seq-true",
+        "F5/5-lists-sublists-1",
+        "F5/5-lists-sublists-2",
+        "F5/5-lists-sublists-3",
+        "F5/5-lists-sublists-4",
+        "F5/5-randomness-is-hard",
+        "F5/5-zombie-attack",
+        "F5/5-absolute-majority",
+        "F5/5-holand",
+        "F5/5-gray-codes",
+        "F5/5-max-sub-list",
+        "F5/5-subsequence-of-lists",
+        "F5/5-brackets",
+        "F5/5-burrows-wheeler",
+        "F5/5-pizzaria"
+      ]
+    }
+  }
+}

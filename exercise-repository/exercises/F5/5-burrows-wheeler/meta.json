@@ -1,0 +1,8 @@
+{
+    "learnocaml_version"    : "2",
+    "kind"                  : "exercise",
+    "stars"                 : 3,
+    "title"                 : "A transformada de Burrows-Wheeler",
+    "identifier"            : "5.18",
+    "authors"               : [["Gonçalo Domingos","goncalogdomingos@gmail.com"]]
+}

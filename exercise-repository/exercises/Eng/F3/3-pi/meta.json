@@ -1,0 +1,11 @@
+{
+  "learnocaml_version": "2",
+  "kind": "exercise",
+  "stars": 1,
+  "title": "Approximate π",
+  "identifier": "3.5",
+  "authors": [
+    ["Rui Barata", "rui.barata@ubi.pt"],
+    ["Simão Melo de Sousa", ""]
+  ]
+}

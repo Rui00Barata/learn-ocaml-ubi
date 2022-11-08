@@ -1,0 +1,34 @@
+{ 
+  "learnocaml_version": "1",
+  "groups":
+  { 
+    "Ficha3":
+    { 
+      "title": "Ficha 3 - cálculo e recursividade",
+      "exercises": [
+        "3-simple-math",
+        "3-distancia-de-manhattan",
+        "3-um-algoritmo-historico",
+        "3-chegar-ao-infinito",
+        "3-pi",
+        "3-algarismos",
+        "3-seq-hofstadter",
+        "3-hofstadter",
+        "3-sums",
+        "3-tribonacci",
+
+        "3-exponenciacao",
+        "3-catalan",
+        "3-dicotomia",
+        "3-funcao-91-mccarthy",
+        "3-triangles",
+		    "3-collatz-hailstones",
+        "3-estrelinhas-como-fractais-textuais",
+
+        "3-quantas-montanhas",
+        "3-grandeza-do-dragao",
+        "3-torres-de-hanoi"
+      ]
+    }
+  }
+}

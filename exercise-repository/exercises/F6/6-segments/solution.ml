@@ -1,0 +1,1 @@
+let segmentos pontos = pontos

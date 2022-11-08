@@ -1,0 +1,16 @@
+{ 
+  "learnocaml_version": "1",
+  "groups":
+  { 
+    "Ficha2":
+    { 
+      "title": "Ficha 2 - do familiar para o novo",
+      "exercises": [
+        "2-digit-sum",
+        "2-floyds-triangle",
+        "2-charles-babbage",
+        "2-rolling-hash"
+      ]
+    }
+  }
+}

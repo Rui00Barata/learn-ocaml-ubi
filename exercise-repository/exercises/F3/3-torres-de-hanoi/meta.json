@@ -1,0 +1,8 @@
+{
+    "learnocaml_version"    : "2",
+    "kind"                  : "exercise",
+    "stars"                 : 3,
+    "title"                 : "As torres de Hanói",
+    "identifier"            : "3.22",
+    "authors"               : [["Dário Santos","dariovfsantos@gmail.com"], ["Gonçalo Domingos","goncalogdomingos@gmail.com"], ["Simão Sousa", "desousa@di.ubi.pt"]]
+}

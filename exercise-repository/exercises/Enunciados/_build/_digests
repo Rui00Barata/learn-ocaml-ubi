@@ -1,0 +1,5 @@
+"Rule: ocaml dependencies ml (%=zarith_example )": "\179A8K\001\226\225\235\031\235\217\164\186@\130\165"
+"Rule: ocaml: cmx* & o* -> native (%=zarith_example )": "\012X\206^G\161*\162\229`V\238;o\179\178"
+"Rule: ocaml: ml & cmi -> cmx & o (%=zarith_example )": "pZ[\137d\030\016q,U\127\205\220\163y\207"
+"Resource: /mnt/c/Users/desousa/OneDrive - Universidade da Beira Interior/Aulas/MDX/zarith_example.ml": "\254\029\029eo\193J\003\161\170\202\224\131\212\250S"
+"Rule: ocaml: ml -> cmo & cmi (%=zarith_example )": "\201\184\179\245\172\180\181 \207\254\198W\162\1600J"

@@ -1,0 +1,8 @@
+{
+    "learnocaml_version" : "2",
+    "kind"               : "exercise",
+    "stars"              : 2,
+    "title"              : "Run-length encoder",
+    "identifier"         : "5.7",
+    "authors"            : [["Rui Barata", "rui.barata@ubi.pt"]]
+}

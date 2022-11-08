@@ -1,0 +1,8 @@
+{
+    "learnocaml_version"    : "2",
+    "kind"                  : "exercise",
+    "stars"                 : 2,
+    "title"                 : "Gray codes",
+    "identifier"            : "5.4",
+    "authors"               : [["Gonçalo Domingos","goncalogdomingos@gmail.com"], ["Leonardo Santos", "leomendesantos@gmail.com"]]
+}

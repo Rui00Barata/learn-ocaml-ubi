@@ -1,0 +1,8 @@
+{
+    "learnocaml_version"    : "2",
+    "kind"                  : "exercise",
+    "stars"                 : 1,
+    "title"                 : "Ordenar listas ou vetores com critério",
+    "identifier"            : "5.4",
+    "authors"               : [["Gonçalo Domingos","goncalogdomingos@gmail.com"]]
+}

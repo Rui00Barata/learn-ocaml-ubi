@@ -1,0 +1,8 @@
+{
+    "learnocaml_version" : "2",
+    "kind"               : "exercise",
+    "stars"              : 1,
+    "title"              : "Verdade ou falso?",
+    "identifier"         : "4.5",
+    "authors"            : [["Rui Barata", "rui.barata@ubi.pt"], ["Simão Sousa", "desousa@di.ubi.pt"]]
+}

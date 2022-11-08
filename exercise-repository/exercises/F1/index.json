@@ -1,0 +1,24 @@
+{ 
+  "learnocaml_version": "1",
+  "groups":
+  { 
+    "Ficha1":
+    { 
+      "title": "Ficha 1 - tipagem, avaliação, erros",
+      "exercises": [
+        "1-type",
+        "1-type-error",
+        "1-mistery",
+        "1-future",
+        "1-errors",
+        "1-type-value",
+        "1-what-type",
+        "1-true-false",
+        "1-what-type2",
+        "1-type2",
+        "1-tuples",
+        "1-fun-calls"
+      ]
+    }
+  }
+}

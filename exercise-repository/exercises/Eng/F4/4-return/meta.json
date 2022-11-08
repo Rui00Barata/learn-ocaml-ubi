@@ -1,0 +1,11 @@
+{
+  "learnocaml_version": "2",
+  "kind": "exercise",
+  "stars": 1,
+  "title": "Analysis of return values",
+  "identifier": "4.6",
+  "authors": [
+    ["Rui Barata", "rui.barata@ubi.pt"],
+    ["Simão Sousa", "desousa@di.ubi.pt"]
+  ]
+}

@@ -1,0 +1,8 @@
+{
+    "learnocaml_version"    : "2",
+    "kind"                  : "exercise",
+    "stars"                 : 2,
+    "title"                 : "A conjectura de Collatz ou de Hailstones ou de Syracuse ou de mais uns nomes giros…",
+    "identifier"            : "3.17",
+    "authors"               : [["Dário Santos","dariovfsantos@gmail.com"], ["Gonçalo Domingos","goncalogdomingos@gmail.com"], ["Simão Sousa", "desousa@di.ubi.pt"]]
+}

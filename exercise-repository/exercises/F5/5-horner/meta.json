@@ -1,0 +1,8 @@
+{
+    "learnocaml_version"    : "2",
+    "kind"                  : "exercise",
+    "stars"                 : 2,
+    "title"                 : "Cálculos sobre Polinómios de uma variável - Métodos de Horner e derivação",
+    "identifier"            : "5.6",
+    "authors"               : [["Gonçalo Domingos","goncalogdomingos@gmail.com"]]
+}

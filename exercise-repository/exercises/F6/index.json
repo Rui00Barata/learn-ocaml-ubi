@@ -1,0 +1,24 @@
+{ 
+  "learnocaml_version": "1",
+  "groups":
+  { 
+    "Ficha5":
+    { 
+      "title": "Ficha OCaml 6: tuplos e estruturas",
+      "exercises": [
+        "6-complex-numbers",
+        
+        "6-order-triples",
+        
+        "6-adventure",
+        
+        "6-dictionaries",
+        
+        "6-segments",
+        
+        "6-discography"
+        
+      ]
+    }
+  }
+}

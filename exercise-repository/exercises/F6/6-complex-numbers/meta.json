@@ -1,0 +1,8 @@
+{
+    "learnocaml_version" : "2",
+    "kind"               : "exercise",
+    "stars"              : 1,
+    "title"              : "Números complexos como pares ou como estrutura",
+    "identifier"         : "6.1",
+    "authors"            : [["Rui Barata", "rui.barata@ubi.pt"], ["Simão Sousa", "desousa@di.ubi.pt"]]
+}

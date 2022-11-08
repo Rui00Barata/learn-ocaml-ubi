@@ -1,0 +1,1 @@
+let falar_vacuosamente () = failwith "Substitua pela sua solucao"

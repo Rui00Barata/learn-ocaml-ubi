@@ -1,0 +1,8 @@
+{
+    "learnocaml_version"    : "2",
+    "kind"                  : "exercise",
+    "stars"                 : 2,
+    "title"                 : "Problema da sublista máxima",
+    "identifier"            : "5.15",
+    "authors"               : [["Gonçalo Domingos","goncalogdomingos@gmail.com"]]
+}

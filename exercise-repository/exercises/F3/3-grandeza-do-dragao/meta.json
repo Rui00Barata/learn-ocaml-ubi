@@ -1,0 +1,8 @@
+{
+  "learnocaml_version" : "2",
+  "kind"               : "exercise",
+  "stars"              : 3,
+  "title"              : "A grandeza do dragão",
+  "identifier"         : "3.21",
+  "authors"            : [["Dário Santos", "dariovfsantos@gmail.com"], ["Simão Sousa", "desousa@di.ubi.pt"]]
+}

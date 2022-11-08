@@ -1,0 +1,34 @@
+{ 
+  "learnocaml_version": "1",
+  "groups":
+  { 
+    "Ficha5":
+    { 
+      "title": "Ficha 5 - listas e vetores",
+      "exercises": [
+        "5-lists",
+        "5-brilhar-em-sociedade",
+        "5-totoloto",
+        "5-olvc",
+        "5-half",
+        "5-horner",
+        "5-rle",
+        "5-seq-true",
+        "5-lists-sublists-1",
+        "5-lists-sublists-2",
+        "5-lists-sublists-3",
+        "5-lists-sublists-4",
+        "5-randomness-is-hard",
+        "5-zombie-attack",
+        "5-maioria-absoluta",
+        "5-holand",
+        "5-codigos-de-gray",
+        "5-sub-lista-max",
+        "5-subsequencia-de-listas",
+        "5-brackets",
+        "5-burrows-wheeler",  
+        "5-pizzaria"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# dune build
+# OCAMLPARAM: unset
+# Workspace root: "/mnt/c/Users/desousa/OneDrive - Universidade da Beira
+# Interior/Aulas/MDX"
+$ /usr/bin/nproc > /tmp/dune9ffc3e.output 2> /dev/null
+# Auto-detected concurrency: 12
+# disable binary cache

@@ -1,0 +1,1 @@
+let montanhas n k = failwith "Substitua pela sua solucao"

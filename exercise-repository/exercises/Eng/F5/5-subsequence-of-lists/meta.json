@@ -1,0 +1,8 @@
+{
+  "learnocaml_version": "2",
+  "kind": "exercise",
+  "stars": 3,
+  "title": "Subsequence of lists",
+  "identifier": "5.5",
+  "authors": [["Dário Santos", "dariovfsantos@gmail.com"]]
+}

@@ -1,0 +1,1 @@
+let rec euclides a b = failwith "Substitua pela sua solucao"

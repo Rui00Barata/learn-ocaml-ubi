@@ -1,0 +1,8 @@
+{
+    "learnocaml_version"    : "2",
+    "kind"                  : "exercise",
+    "stars"                 : 2,
+    "title"                 : "Sequência máxima de true",
+    "identifier"            : "5.8",
+    "authors"               : [["Gonçalo Domingos","goncalogdomingos@gmail.com"]]
+}

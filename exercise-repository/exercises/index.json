@@ -1,0 +1,108 @@
+{ 
+  "learnocaml_version": "1",
+  "groups":
+  {
+    "Ficha1":
+    { 
+      "title": "Ficha 1 - tipagem, avaliação, erros",
+      "exercises": [
+        "1-type",
+        "1-type-error",
+        "1-mistery",
+        "1-future",
+        "1-errors",
+        "1-type-value",
+        "1-what-type",
+        "1-true-false",
+        "1-what-type2",
+        "1-type2",
+        "1-tuples",
+        "1-fun-calls"
+      ]
+    },
+    
+    "Ficha2":
+    { 
+      "title": "Ficha 2 - do familiar para o novo",
+      "exercises": [
+        "2-digit-sum",
+        "2-floyds-triangle",
+        "2-charles-babbage",
+        "2-rolling-hash"
+      ]
+    },
+
+    "Ficha3":
+    { 
+      "title": "Ficha 3 - cálculo e recursividade",
+      "exercises": [
+        "3-simple-math",
+        "3-distancia-de-manhattan",
+        "3-um-algoritmo-historico",
+        "3-chegar-ao-infinito",
+        "3-pi",
+        "3-algarismos",
+        "3-seq-hofstadter",
+        "3-hofstadter",
+        "3-sums",
+        "3-tribonacci",
+
+        "3-exponenciacao",
+        "3-catalan",
+        "3-dicotomia",
+        "3-funcao-91-mccarthy",
+        "3-triangles",
+		    "3-collatz-hailstones",
+        "3-estrelinhas-como-fractais-textuais",
+
+        "3-quantas-montanhas",
+        "3-grandeza-do-dragao",
+        "3-torres-de-hanoi"
+      ]
+    },
+    
+    "Ficha4":
+    { 
+      "title": "Ficha 4 - tipagem, avaliação e erros - parte 2",
+      "exercises": [
+        "4-type-1",
+        "4-type-2",
+        "4-type-3",
+        "4-type-4",
+        "4-true-false",
+        "4-return",
+        "4-fun-1",
+        "4-fun-2"
+      ]
+    },
+
+    "Ficha5":
+    { 
+      "title": "Ficha 5 - listas e vetores",
+      "exercises": [
+        "5-lists",
+        "5-brilhar-em-sociedade",
+        "5-totoloto",
+        "5-olvc",
+        "5-half",
+        "5-horner",
+        "5-rle",
+        "5-seq-true",
+        "5-lists-sublists-1",
+        "5-lists-sublists-2",
+        "5-lists-sublists-3",
+        "5-lists-sublists-4",
+        "5-randomness-is-hard",
+        "5-zombie-attack",
+        "5-maioria-absoluta",
+        "5-holand",
+        "5-codigos-de-gray",
+        "5-sub-lista-max",
+        "5-subsequencia-de-listas",
+        "5-brackets",
+        "5-burrows-wheeler",  
+        "5-pizzaria"
+      ]
+    }
+  }
+}

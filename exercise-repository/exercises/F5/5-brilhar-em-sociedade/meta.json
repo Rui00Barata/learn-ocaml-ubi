@@ -4,5 +4,6 @@
   "stars"              : 1,
   "title"              : "Brilhar em sociedade",
   "identifier"         : "5.2",
-  "authors"            : [["Dário Santos", "dariovfsantos@gmail.com"]]
+  "authors"            : [["Dário Santos", "dariovfsantos@gmail.com"]],
+  "requirements"       : ["5.1"]
 }

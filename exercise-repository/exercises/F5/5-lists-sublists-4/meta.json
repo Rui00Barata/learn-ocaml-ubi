@@ -4,5 +4,6 @@
     "stars"              : 2,
     "title"              : "Listas e sub-listas IV",
     "identifier"         : "5.12",
-    "authors"            : [["Rui Barata", "rui.barata@ubi.pt"]]
+    "authors"            : [["Rui Barata", "rui.barata@ubi.pt"]],
+    "requirements"	 : ["5.11"]
 }

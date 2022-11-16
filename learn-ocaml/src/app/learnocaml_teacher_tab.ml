@@ -825,8 +825,20 @@ let rec teacher_tab token _select _params () =
         List.map (fun x -> create_student x) tokens
       in
 
+      let rec print_exe_list = function
+        | [] -> ()
+        | {title;stars;id;requirements}::t -> (print_string ("[" ^ title ^ " -> "); if List.length requirements <> 0
+        then print_float (List.hd requirements); print_string ("]\n"); print_exe_list t)
+      in
+
+
       let exercises = htbl_keys selected_exercises in
       let exercises = create_exercise_list [] exercises in
+      let () =
+        let oneArgument (a: int) = a + 100 in
+        Js.Unsafe.global##.jsOneArgument := Js.wrap_callback oneArgument;
+        (* This will go to console.log *)
+        print_exe_list exercises in
       let tokens = get_students_meta () in
       let assignments = Gen_assignment.iter_tokens tokens exercises in
       let new_assignment_list = get_all_assignments assignments in

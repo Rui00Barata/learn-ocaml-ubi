@@ -36,13 +36,18 @@ exception No_more_exercises
 	#     AUX FUNCTIONS      #
 	##########################
 *)
+let diff_to_int = function
+  | Basic         -> 1
+  | Intermediate  -> 2
+  | _             -> 3
+
 let float_to_diff = function
 	| x when x < 2. -> Basic
 	| x when x < 3. -> Intermediate
 	| _             -> Consolidated
 
 let htbl_to_array htbl = 
-	Array.of_list (Hashtbl.fold (fun (k,_) _ acc -> k::acc) htbl [])
+	Array.of_list (Hashtbl.fold (fun k _ acc -> k::acc) htbl [])
 	
 let create_student t lvl =
 	{
@@ -56,9 +61,9 @@ let create_student t lvl =
 
 
 let create_htbls availabel_exercises = 
-	let basic = Hashtbl.create 10 in
-	let intermediate = Hashtbl.create 10 in
-	let consolidated = Hashtbl.create 10 in
+	let basic         = Hashtbl.create 10 in
+	let intermediate  = Hashtbl.create 10 in
+	let consolidated  = Hashtbl.create 10 in
 	
 	let add_exe_to_htbl exe = 
 		let htbl = (
@@ -67,7 +72,7 @@ let create_htbls availabel_exercises =
 			| Intermediate  -> intermediate 
 			| Consolidated  -> consolidated
 		) in
-		Hashtbl.add htbl (exe.title, exe.id) exe
+		Hashtbl.add htbl (exe.id) exe
 	in
 	let rec sort_exercises = function
 		| []    -> ()
@@ -76,7 +81,6 @@ let create_htbls availabel_exercises =
 	sort_exercises availabel_exercises;
 	basic, intermediate, consolidated
 	
-
 let gen_assignment (basic, intermediate, consolidated) level =
 
 	let basic_a         = htbl_to_array basic in
@@ -106,11 +110,8 @@ let gen_assignment (basic, intermediate, consolidated) level =
 		init_aux (Array.length basic_a) (Array.length intermediate_a) (Array.length consolidated_a) 0 
 	in
 
-	(*
-		 Create priority queues for all dificulties and check in it before adding it to the array.
-	*)
 	let diff_to_exercise a = 
-		let r = Array.make 5 "" in
+		let r = Array.make 6 "" in
 		let shuffle_a v = 
 			let n = Array.length v in
 			let v = Array.copy v in
@@ -122,23 +123,95 @@ let gen_assignment (basic, intermediate, consolidated) level =
 			done;
 			v
 		in
-		let rec translate_aux b_a i_a c_a b i c idx = 
+		let b_a = shuffle_a basic_a in
+		let i_a = shuffle_a intermediate_a in
+		let c_a = shuffle_a consolidated_a in
+    let get_requirement (k : float) =
+      match Hashtbl.find_opt basic k with
+      | Some x  -> x.requirements
+      | None    ->
+        match Hashtbl.find_opt intermediate k with
+        | Some x  -> x.requirements
+        | None    -> (Hashtbl.find consolidated k).requirements
+    in
+		let rec translate_aux b i c req idx = 
 			if (idx >= 0) then
 				match a.(idx) with
-				| 1 -> (r.(idx) <- b_a.(b); translate_aux b_a i_a c_a (b+1) i c (idx - 1))
-				| 2 -> (r.(idx) <- i_a.(i); translate_aux b_a i_a c_a b (i+1) c (idx - 1))
-				| 3 -> (r.(idx) <- c_a.(c); translate_aux b_a i_a c_a b i (c+1) (idx - 1))
-				| _ -> ()
+				| 1 -> (let new_req = get_requirement b_a.(b) in r.(idx) <- (Hashtbl.find basic b_a.(b)).title; translate_aux (b+1) i c (if new_req <>
+        [] then ((idx,List.hd new_req)::req) else req) (idx - 1))
+				| 2 -> (let new_req = get_requirement i_a.(i) in r.(idx) <- (Hashtbl.find intermediate i_a.(i)).title; translate_aux b (i+1) c (if new_req <>
+        [] then ((idx,List.hd new_req)::req) else req) (idx - 1))
+				| _ -> (let new_req = get_requirement c_a.(c) in r.(idx) <- (Hashtbl.find consolidated c_a.(c)).title; translate_aux b i (c+1) (if new_req <>
+        [] then ((idx,List.hd new_req)::req) else req) (idx - 1))
+      else b,i,c,req
 		in
-		let b = shuffle_a basic_a in
-		let i = shuffle_a intermediate_a in
-		let c = shuffle_a consolidated_a in
-		translate_aux b i c 0 0 0 ((Array.length a)-1); r
+
+    let b,i,c,req = translate_aux 0 0 0 [] ((Array.length a)-1) in
+    let changed  = Array.make 5 0 in 
+
+    let find_place d = 
+      let d = diff_to_int d in
+      let rec aux id =
+        if (id >= 0) then (
+          if (changed.(id) = 0) then
+            match d with
+            | 1 -> id
+            | 2 -> id
+            | _ -> id
+          else aux (id-1)
+        )
+        else -1 
+      in
+      aux 4 
+    in
+    let change_exercise idx =
+      let d = a.(idx) in
+      match d with
+      | 1 -> if b < ((Array.length b_a)-1) then b+1 else raise No_more_exercises
+      | 2 -> if i < ((Array.length i_a)-1) then i+1 else raise No_more_exercises
+      | _ -> if c < ((Array.length c_a)-1) then c+1 else raise No_more_exercises
+    in
+    let rec fill_requirements = function (* need to check if req exists (is selected in gui) *)
+      | []                  -> ()
+      | (idx, exe_id)::tl ->
+        let {title;stars;id;requirements} = Hashtbl.find (match a.(idx) with | 1 -> basic | 2 -> intermediate | _ ->
+          consolidated) exe_id in
+        if Array.mem title r then fill_requirements tl 
+        else ( 
+          let new_id = find_place stars in
+          changed.(idx) <- 1;
+          if new_id <> -1 then (
+            let new_req = get_requirement id in 
+            r.(new_id) <- title; 
+            changed.(new_id) <- 1;
+            fill_requirements (if new_req <> [] then ((new_id, List.hd new_req)::tl) else tl)
+          )
+          else (
+            if r.(5) = "" then (
+              let new_req = get_requirement id in 
+              r.(5) <- title; 
+              fill_requirements (if new_req <> [] then ((5, List.hd new_req)::tl) else tl)
+            )
+            else
+              try
+                let new_id = change_exercise idx in
+                let new_req = get_requirement (match a.(idx) with | 1 -> b_a.(new_id) | 2 -> i_a.(new_id) | _ ->
+                  c_a.(new_id)) in 
+                r.(idx) <-  (match a.(idx) with | 1 -> Hashtbl.find basic b_a.(new_id) | 2 -> Hashtbl.find intermediate
+                i_a.(new_id) | _ -> Hashtbl.find consolidated c_a.(new_id)).title;
+                fill_requirements (if new_req <> [] then ((idx, List.hd new_req)::tl) else tl)
+              with _ -> ()
+          )
+        )
+    in
+    fill_requirements req;
+    r
 	in
 
 	init_assignment (); 
 	Array.fast_sort compare assignment;
 	let assignment = diff_to_exercise assignment in
+  let assignment = if assignment.(5) = "" then Array.sub assignment 0 5 else assignment in
 	Array.to_list assignment
 	
 

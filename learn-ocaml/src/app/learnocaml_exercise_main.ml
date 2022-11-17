@@ -236,6 +236,18 @@ let () =
     show_loading ~id:"learnocaml-exo-loading" [ messages ; abort_message ]
     @@ fun () ->
     Lwt_js.sleep 1. >>= fun () ->
+
+    (* Multiple Choice *)
+    let text_div = Dom_html.getElementById "learnocaml-exo-tab-text" in
+    let iframe = text_div##.(lastChild) in
+(*
+    let iframe = text_div##(getElementsByTagName (Js.string "iframe")) in
+    let iframe = iframe##(item 0) in
+    let iframe = Dom.CoerceTo.element iframe in
+    let form = iframe##(contentDocument) in
+*)
+
+
     let solution = Ace.get_contents ace in
     Learnocaml_toplevel.check top solution >>= fun res ->
     match res with

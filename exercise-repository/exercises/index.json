@@ -5,30 +5,9 @@
 
     "Ficha5":
     { 
-      "title": "Ficha 5 - listas e vetores",
+      "title": "Ficha 2",
       "exercises": [
-        "F5/5-lists",
-        "F5/5-brilhar-em-sociedade",
-        "F5/5-totoloto",
-        "F5/5-olvc",
-        "F5/5-half",
-        "F5/5-horner",
-        "F5/5-rle",
-        "F5/5-seq-true",
-        "F5/5-lists-sublists-1",
-        "F5/5-lists-sublists-2",
-        "F5/5-lists-sublists-3",
-        "F5/5-lists-sublists-4",
-        "F5/5-randomness-is-hard",
-        "F5/5-zombie-attack",
-        "F5/5-maioria-absoluta",
-        "F5/5-holand",
-        "F5/5-codigos-de-gray",
-        "F5/5-sub-lista-max",
-        "F5/5-subsequencia-de-listas",
-        "F5/5-brackets",
-        "F5/5-burrows-wheeler",  
-        "F5/5-pizzaria"
+	"F2/2-charles-babbage"
       ]
     }
   }

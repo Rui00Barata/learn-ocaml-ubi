@@ -39,12 +39,18 @@ Esta é uma solução em C (retirada do excelente site _rosetta code_, apesar de
 
 Infelizmente este código tem alguns problemas escondidos.
 
-1. Qual das seguintes respostas é um dos problemas presentes:
 
-    A) Existe a possibilidade de dividir por zero<br />
-    B) Podemos gerar uma _segmentation fault_<br />
-    C) A condição `(square>INT_MAX)` não faz sentido<br />
-    D) O ciclo é infinito<br /><br />
+
+<form name="mc1">
+	<fieldset>
+		<legend>1. Qual das seguintes respostas é um dos problemas presentes:</legend>
+		<input type="checkbox" name="A"> Existe a possibilidade de dividir por zero<br>
+		<input type="checkbox" name="B"> Podemos gerar uma _segmentation fault_ <br>
+		<input type="checkbox" name="C"> A condição `(square>INT_MAX)` não faz sentido<br>
+		<input type="checkbox" name="D"> O ciclo é infinito <br>
+		<input type="button" name="button1" value="Get Choices" onClick="getCheckedValues(this.form)">
+	</fieldset>
+</form>
 
 2. Qual das seguintes respostas é um dos problemas presentes:
 
@@ -64,3 +70,16 @@ Infelizmente este código tem alguns problemas escondidos.
 
 Para sua curiosidade propomos um desafio opcional que poderá resolver na sua máquina:<br>
 Não haverá melhor algoritmo? Se responder positivamente, proponha uma nova e otimizada versão OCaml. Defina a função seguinte: `babbage_opt : unit -> int`.
+
+
+<script>
+function isChecked(checkbox) {
+	return checkbox.checked
+}
+function getCheckedValues(form) {
+	console.log("A: " + isChecked(form.A))
+	console.log("B: " + isChecked(form.B))
+	console.log("C: " + isChecked(form.C))
+	console.log("D: " + isChecked(form.D))
+}
+</script>

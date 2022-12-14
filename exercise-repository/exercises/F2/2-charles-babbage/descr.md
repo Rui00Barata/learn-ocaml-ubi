@@ -48,7 +48,6 @@ Infelizmente este código tem alguns problemas escondidos.
 		<input type="checkbox" name="B"> Podemos gerar uma _segmentation fault_ <br>
 		<input type="checkbox" name="C"> A condição `(square>INT_MAX)` não faz sentido<br>
 		<input type="checkbox" name="D"> O ciclo é infinito <br>
-		<input type="button" name="button1" value="Get Choices" onClick="getCheckedValues(this.form)">
 	</fieldset>
 </form>
 
@@ -72,14 +71,3 @@ Para sua curiosidade propomos um desafio opcional que poderá resolver na sua m�
 Não haverá melhor algoritmo? Se responder positivamente, proponha uma nova e otimizada versão OCaml. Defina a função seguinte: `babbage_opt : unit -> int`.
 
 
-<script>
-function isChecked(checkbox) {
-	return checkbox.checked
-}
-function getCheckedValues(form) {
-	console.log("A: " + isChecked(form.A))
-	console.log("B: " + isChecked(form.B))
-	console.log("C: " + isChecked(form.C))
-	console.log("D: " + isChecked(form.D))
-}
-</script>

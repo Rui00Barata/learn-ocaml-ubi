@@ -1,4 +1,4 @@
-let p1 = C
+let mc1 = C
 
 let p2 = A
 

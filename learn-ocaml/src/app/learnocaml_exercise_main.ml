@@ -242,36 +242,24 @@ let () =
 *************************)
 
     
+    let form_results = Buffer.create 5 in
     let isChecked checkbox = checkbox##.checked in 
 
-    let getCheckedValues form =
+    let getCheckedValues i f =
       let output = Buffer.create 5 in
-      if isChecked (form##.A) then Buffer.add_string output "let mc1 = A\n\n";
-      if isChecked (form##.B) then Buffer.add_string output "let mc1 = B\n\n";
-      if isChecked (form##.C) then Buffer.add_string output "let mc1 = C\n\n";
-      if isChecked (form##.D) then Buffer.add_string output "let mc1 = D\n\n";
-      Buffer.contents output
-(*
-      let oneArgument (a: int) = a + 100 in
-      Js.Unsafe.global##.jsOneArgument := Js.wrap_callback oneArgument;
-      print_string (string_of_int form)
-      print_string ("A: " ^ string_of_bool (isChecked form##A));
-      print_string ("B: " ^ string_of_bool (isChecked form##B));
-      print_string ("C: " ^ string_of_bool (isChecked form##C));
-      print_string ("D: " ^ string_of_bool (isChecked form##D))
-      Js.log "A: " ^ string_of_bool (isChecked form##A);
-      Js.log "B: " ^ string_of_bool (isChecked form##B);
-      Js.log "C: " ^ string_of_bool (isChecked form##C);
-      Js.log "D: " ^ string_of_bool (isChecked form##D)
-*)
+      if isChecked (f##.A) then Buffer.add_string output ("A");
+      if isChecked (f##.B) then Buffer.add_string output ("B");
+      if isChecked (f##.C) then Buffer.add_string output ("C");
+      if isChecked (f##.D) then Buffer.add_string output ("D");
+      Buffer.add_string form_results ("let mc" ^ string_of_int (i+1) ^ " = " ^ (Buffer.contents output) ^ "\n\n")
     in
     let document = Js.Unsafe.global##.document in 
     let text_div = document##getElementById ("learnocaml-exo-tab-text") in
     let iframe = text_div##.lastChild in
     let doc = iframe##.contentDocument in
-    let forms = doc##.forms in
-(*     let forms = Array.init (forms##length) (fun i -> forms##item(i)) in  *)
-    let solution = getCheckedValues (forms##item(0)) in
+    let forms = Js.to_array doc##.forms in
+    Array.iteri (getCheckedValues) forms;
+
 (*
     let text_div = Dom_html.getElementById "learnocaml-exo-tab-text" in
     let iframe = text_div##.(lastChild) in
@@ -284,8 +272,7 @@ let () =
 *)
 
 
-    let solution = solution ^ (Ace.get_contents ace) in
-    let solution = ("let p1 = A\n\n") ^ solution in
+    let solution = (Buffer.contents form_results) ^ (Ace.get_contents ace) in
     Learnocaml_toplevel.check top solution >>= fun res ->
     match res with
     | Toploop_results.Ok ((), _) ->

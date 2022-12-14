@@ -173,6 +173,37 @@ let () =
   (* ---- toplevel pane ------------------------------------------------- *)
   init_toplevel_pane toplevel_launch top toplevel_buttons_group toplevel_button ;
   (* ---- text pane ----------------------------------------------------- *)
+
+(*********************************
+      Remove MC From Solution
+**********************************)
+  let find_mc str =
+    let regex = Str.regexp "let mc[^\n\n]+\n\n" in
+    try
+      let start_pos = Str.search_forward regex str 0 in
+      let end_pos = Str.match_end() in
+      (start_pos, end_pos)
+    with Not_found -> (-1, -1)
+  in
+  let remove_substring str (start_pos, end_pos) =
+    let prefix = String.sub str 0 start_pos in
+    let suffix = String.sub str end_pos (String.length str - end_pos) in
+    prefix ^ suffix
+  in
+  let rec remove_all_mc solution = 
+    let mc = find_mc solution in
+    if fst mc <> -1 then 
+      let solution = remove_substring solution mc in
+      remove_all_mc solution 
+    else 
+      solution
+  in
+  let solution = remove_all_mc solution in
+
+(*
+  let size = String.length solution in
+  let solution = String.sub solution 13 (size-13) in
+*)
   let text_container = find_component "learnocaml-exo-tab-text" in
   let text_iframe = Dom_html.createIframe Dom_html.document in
   Manip.replaceChildren text_container
@@ -251,7 +282,8 @@ let () =
       if isChecked (f##.B) then Buffer.add_string output ("B");
       if isChecked (f##.C) then Buffer.add_string output ("C");
       if isChecked (f##.D) then Buffer.add_string output ("D");
-      Buffer.add_string form_results ("let mc" ^ string_of_int (i+1) ^ " = " ^ (Buffer.contents output) ^ "\n\n")
+      if Buffer.length output <> 0 then
+        Buffer.add_string form_results ("let mc" ^ string_of_int (i+1) ^ " = " ^ (Buffer.contents output) ^ "\n\n")
     in
     let document = Js.Unsafe.global##.document in 
     let text_div = document##getElementById ("learnocaml-exo-tab-text") in

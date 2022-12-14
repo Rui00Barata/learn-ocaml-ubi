@@ -6,7 +6,7 @@ let multipleChoice1_test =
   Section ([ Text "Exercício 1: " ; Code "solution" ],
             test_variable_against_solution
               [%ty: escolha] 
-              "p1")
+              "mc1")
 
 let multipleChoice2_test =
   set_progress "A corrigir pergunta 2" ;

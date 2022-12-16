@@ -1,13 +1,12 @@
 { 
   "learnocaml_version": "1",
   "groups":
-  {
-
-    "Ficha5":
+  { 
+    "Ficha2":
     { 
-      "title": "Ficha 2",
+      "title": "Ficha 2 - do familiar para o novo",
       "exercises": [
-	"F2/2-charles-babbage"
+        "F2/2-charles-babbage"
       ]
     }
   }

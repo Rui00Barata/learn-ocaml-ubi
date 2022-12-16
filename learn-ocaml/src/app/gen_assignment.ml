@@ -231,7 +231,10 @@ let iter_tokens tokens availabel_exercises =
 	in
 	let rec aux_tokens = function
 		| []    -> assignments
-		| {token; level}::t  -> if ((List.length availabel_exercises) < 6) then (Hashtbl.add assignments (assignment_to_string_list [] availabel_exercises) token; aux_tokens t)
-							 else (Hashtbl.add assignments (gen_assignment tbl level) token; aux_tokens t)
+		| {token; level}::t  -> 
+        if ((List.length availabel_exercises) < 6) then 
+          (Hashtbl.add assignments (assignment_to_string_list [] availabel_exercises) token; aux_tokens t)
+        else 
+          (Hashtbl.add assignments (gen_assignment tbl level) token; aux_tokens t)
 	in
 	aux_tokens tokens

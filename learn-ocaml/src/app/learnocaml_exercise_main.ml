@@ -177,6 +177,7 @@ let () =
 (*********************************
       Remove MC From Solution
 **********************************)
+  let mcs = Hashtbl.create 3 in 
   let find_mc str =
     let regex = Str.regexp "let mc[^\n\n]+\n\n" in
     try
@@ -185,20 +186,47 @@ let () =
       (start_pos, end_pos)
     with Not_found -> (-1, -1)
   in
-  let remove_substring str (start_pos, end_pos) =
+  let remove_substring str (start_pos, end_pos) id =
     let prefix = String.sub str 0 start_pos in
     let suffix = String.sub str end_pos (String.length str - end_pos) in
+    let answer = str.[start_pos + 10] in
+    Hashtbl.add mcs id answer;
     prefix ^ suffix
   in
-  let rec remove_all_mc solution = 
+  let rec remove_all_mc solution count = 
     let mc = find_mc solution in
     if fst mc <> -1 then 
-      let solution = remove_substring solution mc in
-      remove_all_mc solution 
+      let count = count + 1 in
+      let solution = remove_substring solution mc count in
+      remove_all_mc solution count
     else 
       solution
   in
-  let solution = remove_all_mc solution in
+  let solution = remove_all_mc solution 0 in
+
+  let tick_mc id form = 
+    let rec tick = function
+      | []    -> ()
+      | h::t  ->
+          match h with
+          | 'A' -> form##.A##setAttribute "checked" "checked"; tick t 
+          | 'B' -> form##.B##click (); tick t 
+          | 'C' -> (form##.C)##click (); tick t 
+          | _   -> (form##.D)##click (); tick t 
+    in
+    let id = id + 1 in
+    let answers = Hashtbl.find_all mcs id in
+    tick answers
+  in
+  let restore_mcs () = 
+    let document = Js.Unsafe.global##.document in 
+    let text_div = document##getElementById ("learnocaml-exo-tab-text") in
+    let iframe = text_div##.lastChild in
+    let doc = iframe##.contentDocument in
+    let forms = Js.to_array doc##.forms in
+    Array.iteri (tick_mc) forms;
+  in
+
 
 (*
   let size = String.length solution in
@@ -209,6 +237,7 @@ let () =
   Manip.replaceChildren text_container
     Tyxml_js.Html5.[ h1 [ txt ex_meta.Exercise.Meta.title ] ;
                      Tyxml_js.Of_dom.of_iFrame text_iframe ] ;
+
   (* ---- editor pane --------------------------------------------------- *)
   let editor, ace = setup_editor id solution in
   is_synchronized_with_server_callback := (fun () -> Ace.is_synchronized ace);
@@ -218,15 +247,17 @@ let () =
   EB.download id;
   EB.eval top select_tab;
   let typecheck = typecheck top ace editor in
-(*------------- prelude -----------------*)
+  (*------------- prelude -----------------*)
   setup_prelude_pane ace Learnocaml_exercise.(decipher File.prelude exo);
   Js.Opt.case
     (text_iframe##.contentDocument)
     (fun () -> failwith "cannot edit iframe document")
     (fun d ->
-       d##open_;
+       (d##open_;
        d##write (Js.string (exercise_text ex_meta exo));
-       d##close) ;
+       d##close;)
+    );
+
   (* ---- main toolbar -------------------------------------------------- *)
   let exo_toolbar = find_component "learnocaml-exo-toolbar" in
   let toolbar_button = button ~container: exo_toolbar ~theme: "light" in
@@ -303,8 +334,8 @@ let () =
     let form = iframe##(contentDocument) in
 *)
 
-
     let solution = (Buffer.contents form_results) ^ (Ace.get_contents ace) in
+
     Learnocaml_toplevel.check top solution >>= fun res ->
     match res with
     | Toploop_results.Ok ((), _) ->
@@ -378,5 +409,6 @@ let () =
   (* ---- return -------------------------------------------------------- *)
   toplevel_launch >>= fun _ ->
   typecheck false >>= fun () ->
-  hide_loading ~id:"learnocaml-exo-loading" () ;
+  hide_loading ~id:"learnocaml-exo-loading" (); Lwt.return () >>= fun () ->
+  restore_mcs ();
   Lwt.return ()
